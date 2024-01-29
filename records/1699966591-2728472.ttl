@@ -1,0 +1,55 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix ns1: <http://dbpedia.org/ontology/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://purl.org/knot/data/1699966591-2728472> a <prov:Activity> ;
+    rdfs:label "Atlante Grammaticale della Lingua Italiana delle Origini (AGLIO)" ;
+    ns1:currentStatus "Ongoing" ;
+    dcterms:description "L’Atlante Grammaticale della Lingua Italiana delle Origini vuole rendere disponibile per ricerche di fonologia e morfologia storica la base di dati dell’OVI e in particolare il sottocorpus costituito dai testi significativi (TS), quelli non solo filologicamente sicuri ma anche rappresentativi di una determinata varietà." ;
+    dcterms:subject <http://www.wikidata.org/entity/Q652>,
+        <http://www.wikidata.org/entity/Q8162> ;
+    dcterms:title "Atlante Grammaticale della Lingua Italiana delle Origini (AGLIO)" ;
+    prov:atLocation <https://sws.geonames.org/3172394> ;
+    prov:generated <http://www.wikidata.org/entity/Q8513> ;
+    prov:startedAtTime "2015-01-01"^^xsd:date ;
+    prov:wasAssociatedWith <http://purl.org/knot/data/MD1699966776337>,
+        <http://purl.org/knot/data/MD1699966788568>,
+        <http://purl.org/knot/data/MD1699966813632>,
+        <http://www.wikidata.org/entity/Q1632525> ;
+    prov:wasInfluencedBy <https://vocabs.dariah.eu/tadirah/organizing> ;
+    prov:wasInformedBy <http://purl.org/knot/data/MD1699966829952>,
+        <http://purl.org/knot/data/MD1699966832957> .
+
+<http://purl.org/knot/data/1699966591-2728472/> rdfs:label "Atlante Grammaticale della Lingua Italiana delle Origini (AGLIO)" ;
+    ns1:currentStatus "published"^^xsd:string ;
+    dcterms:title "Atlante Grammaticale della Lingua Italiana delle Origini (AGLIO)" ;
+    prov:generatedAtTime "2023-11-14T14:09:46.185847"^^xsd:dateTime ;
+    prov:wasAttributedTo <http://purl.org/knot/data/anonymous> ;
+    prov:wasInfluencedBy <http://purl.org/knot/data/anonymous> .
+
+<http://purl.org/knot/data/MD1699966776337> rdfs:label "M. Barbato"^^xsd:string .
+
+<http://purl.org/knot/data/MD1699966788568> rdfs:label "S. Arcidiacono"^^xsd:string .
+
+<http://purl.org/knot/data/MD1699966813632> rdfs:label "OVI-CNR"^^xsd:string .
+
+<http://purl.org/knot/data/MD1699966829952> rdfs:label "OVI"^^xsd:string .
+
+<http://purl.org/knot/data/MD1699966832957> rdfs:label "TLIO"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q1632525> rdfs:label "Naples Eastern University"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q652> rdfs:label "Italian"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q8162> rdfs:label "linguistics"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q8513> rdfs:label "database"^^xsd:string .
+
+<https://sws.geonames.org/3172394> rdfs:label "Naples"^^xsd:string .
+
+<https://vocabs.dariah.eu/tadirah/organizing> rdfs:label "Organizing - TADIRAH"^^xsd:string .
+
+<http://purl.org/knot/data/anonymous> rdfs:label "anonymous" .
+

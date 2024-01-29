@@ -1,0 +1,21 @@
+[
+ {
+  "id": "1701162355718",
+  "placeholder": "",
+  "value": "Literal",
+  "label": "Title",
+  "prepend": "",
+  "property": "http://purl.org/dc/terms/title",
+  "type": "Textbox",
+  "disambiguate": "False",
+  "browse": "False",
+  "searchWikidata": "False",
+  "searchVocab": "False",
+  "searchGeonames": "False",
+  "url": "False",
+  "vocab": [],
+  "disabled": "False",
+  "class": "col-md-11",
+  "cache_autocomplete": "off"
+ }
+]
