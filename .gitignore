@@ -3,6 +3,7 @@
 sessions/
 .DS_Store
 blazegraph.jar
+sparql-anything-server-0.8.2.jar
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
