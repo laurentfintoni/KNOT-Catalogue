@@ -5,11 +5,12 @@ $var is_git_auth = is_git_auth
 $var project = project
 
 <section class="row articleBox" vocab="https://schema.org/" typeof="Thing">
-	<section class="col-md-12 row">
+	<section class="col-md-8 row">
 			<h2 class="articleTitle col-md-12" property="name">$title
 			$if 'modified' in stage:
 				<span>draft</span>
 			</h2>
+			<script>console.log('')</script>
 			$for field,value in graphdata.items():
 				$if field != 'Title':
 				$ width_class = "col-md-12" if properties[field][1]=="WebsitePreview" else "col-md-5 col-sm-12" if (value and len(value[0]) <= 100) else 'col-md-12'
@@ -26,7 +27,6 @@ $var project = project
 								<h4 class="articleSubtitle">$field<span class="tip" data-toggle="tooltip" data-placement="right" title="" data-original-title="$properties[field][2]"><i class="fas fa-info-circle"></i></span></h4>
 								<p property="$properties[field][0]">
 								$for uri_value in value:
-									<script>console.log('$len(value)')</script>
 									$if uri_value[0].startswith('Q') and uri_value == value[-1]:
 										<!-- wikidata uri -->
 										
@@ -142,12 +142,12 @@ $var project = project
 				<p>$base$graphID</p>
 		</section>
 	</section>
-	<section class="col-md-4 sideBoxes">
+	<!-- <section class="col-md-4 sideBoxes">
 		<section class="biblio">
 			<h3 class="biblio-label">Modify this record?</h3>
 				<button type="button" class="btn btn-dark" name="button" onclick="window.location.href='modify-$graphID'">Click here</button>
 		</section>
-	</section>
+	</section> -->	
 	<hr/>
 	<!-- <section class="info-item">
 		<h4 class="articleSubtitle">URI</h4>

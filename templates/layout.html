@@ -35,7 +35,8 @@ $def with (content)
 				<!-- <a href="about">about</a> -->
 				<section class="col-md-8 col-sm-12 collapse navbar-collapse" id="navbarSupportedContent">
 					<span><a href="/" class="logo_header">$content.project</a>
-					<a href="records">Explore</a></span>
+					<a href="records">Browse</a>
+					<a href="sparql">SPARQL endpoint</a></span>
 					$if content.user == 'anonymous' or content.user == 'unknown':
 						$if content.is_git_auth == True:
 							<button class="btn btn-dark" onclick="window.location.href='gitauth'"  role="button" id="dropdownMenuLink">Member area <i class="fab fa-github"></i></button>
@@ -63,9 +64,7 @@ $def with (content)
 			<footer class="row justify-content-md-center">
 
 				<section class="col-md-4 col-sm-12">
-						<p>$content.project is part of</p>
-						<p><a target="_blank" href="https://polifonia-project.eu/"><img src="static/imgs/logo.svg"></a> <img src="static/imgs/logoeu.jpg"></p>
-						<p>Polifonia has received funding from the European Union’s Horizon 2020 research and innovation programme under grant agreement N. 101004746</p>
+						<p>$content.project is a three-year pilot project from the University of Bologna and the Central Institute for the Digitization of Cultural Heritage - Digital Library of the Italian Ministry of Culture to showcase the digital cultural heritage of Italian universities.</p>
 						<p></p>
 				</section>
 
@@ -77,11 +76,6 @@ $def with (content)
 					<p><a href="documentation">Editorial guidelines</a></p>
 				</section>
 				<section class="col-md-2 col-sm-10">
-
-					<p><a href="https://github.com/polifonia-project/registry_app"><i class="fab fa-github"></i></a>
-						<a href="https://twitter.com/PolifoniaH2020"><i class="fab fa-twitter"></i></a>
-						<a href="https://www.linkedin.com/company/polifonia-h2020/"><i class="fab fa-linkedin-in"></i></a> </p>
-					<p>Become a collaborator! send us a request on <a href="https://github.com/polifonia-project/registry_app/issues">github</a></p>
 				</section>
 			</footer>
 		</section>
