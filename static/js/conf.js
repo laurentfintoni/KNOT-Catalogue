@@ -1,3 +1,3 @@
-var myPublicEndpoint = "http://127.0.0.1:8080/sparql";
+var myPublicEndpoint = "https://projects.dharc.unibo.it/knot/sparql";
 var base = "http://purl.org/knot/data/";
 var graph = "";

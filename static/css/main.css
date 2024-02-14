@@ -38,7 +38,7 @@ p {
 
 header {
   width: 100% !important;
-  background: linear-gradient(35deg, rgba(100, 23, 180, 1) 0%, rgb(255, 0, 0) 100%), no-repeat center center fixed;
+  background: linear-gradient(90deg, rgba(221,186,230,1) 0%, rgba(254,188,197,1) 50%, rgba(143,195,243,1) 100%), no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -90,7 +90,7 @@ input.btn,
   border: solid 1px black !important;
   box-shadow: 3px 4px black !important;
   transition: background 0.7s linear;
-  background-image: linear-gradient(to left, rgba(255, 0, 0, 1), rgba(100, 23, 180, 1), rgba(100, 23, 180, 1), rgba(100, 23, 180, 1));
+  background-image:  linear-gradient(to left, rgba(221,186,230,1) 0%, rgba(254,188,197,1) 50%, rgba(143,195,243,1) 100%);
   background-size: 300%;
   background-position: 0 0;
   -webkit-appearance: none !important;
@@ -156,24 +156,25 @@ button.active {
   border-bottom: none;
   text-decoration: none !important;
   border-color: #F5F6FA;
+  color: #77789C !important ;
 }
 
 .nav-tabs a.nav-link.active {
-  color: rgba(100, 23, 180, 1) !important;
+  color: #DA555B !important;
   text-decoration: none !important;
   background-color: #F5F6FA !important;
-  border-color: #F5F6FA #F5F6FA rgba(100, 23, 180, 1);
+  border-color: #F5F6FA #F5F6FA #DA555B;
 }
 
 .opener {
   display: block;
   padding: 0.5rem 1rem;
+  color: #77789C !important ;
 }
 
 .logo_header {
   display: inline-block;
   padding: 5px;
-  color: rgba(100, 23, 180, 1);
   font-size: 35px;
   text-transform: uppercase
 }
@@ -197,14 +198,14 @@ nav {
 
 nav a {
   margin-right: 2em;
-  color: rgba(100, 23, 180, 1) !important;
+  color: #77789C !important;
   text-decoration: none !important;
 }
 
 nav a:hover,
 footer a:hover {
-  color: rgba(255, 0, 0, 1) !important;
-  border-color: rgba(255, 0, 0, 1) !important;
+  color: #DA555B !important;
+  border-color: #DA555B !important;
   text-decoration: none;
 }
 
@@ -334,7 +335,7 @@ h3 {
 
 h2,
 h3 {
-  color: rgba(100, 23, 180, 1) !important;
+  color: #DA555B !important;
   font-weight: bold !important;
   margin: 0.5em 0px !important;
 }
@@ -342,7 +343,7 @@ h3 {
 h2 span {
   font-size: 0.2em;
   display: inline-block;
-  background-color: rgba(100, 23, 180, 1);
+  background-color: #DA555B;
   color: white;
   padding: 0.3em;
   vertical-align: super;
@@ -429,7 +430,7 @@ article p {
 
 /* homepage */
 .homepage {
-  background: linear-gradient(35deg, rgba(255, 0, 0, 1) 0%, rgba(100, 23, 180, 1) 100%), no-repeat center center fixed;
+  background: linear-gradient(90deg, rgba(221,186,230,1) 0%, rgba(254,188,197,1) 50%, rgba(143,195,243,1) 100%), no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -506,8 +507,8 @@ article p {
 }
 
 .caption {
-  color: rgba(100, 23, 180, 1);
-  border-bottom: solid 1px rgba(100, 23, 180, 1);
+  color: #77789C;
+  border-bottom: solid 1px #77789C;
   padding: 5px;
   padding: 5px;
   width: 75px;
@@ -709,7 +710,7 @@ th {
 }
 
 .blue {
-  color: rgba(100, 23, 180, 1) !important;
+  color: #DA555B !important;
   cursor: pointer;
 }
 
@@ -842,18 +843,18 @@ input.following_checkbox {
 }
 
 i.fa-info-circle {
-  color: rgba(100, 23, 180, 1);
+  color: #FEBCC5;
   display: block;
 }
 
 .articleSubtitle > span.tip > i.fa-info-circle {
-  color: rgba(100, 23, 180, 1);
+  color: #FEBCC5;
   display: inherit !important;
   padding-left: 5px ;
 }
 
 i.fa-info-circle:hover {
-  color: rgba(100, 23, 180, 1);
+  color: #FEBCC5;
 }
 
 ::placeholder {
@@ -985,16 +986,17 @@ i.fa-info-circle:hover {
 .showRes,
 .showMore {
   margin: 20px 0px;
-  background-color: rgba(100, 23, 180, 1);
+  background-color: #77789C !important;
   color: white;
 }
 
 .hideRes:hover,
 .showRes:hover,
 .showMore:hover {
-  filter: brightness(125%);
+  filter: brightness(115%);
   -webkit-transition-duration: 0.4s;
   transition-duration: 0.4s;
+  color: #77789C !important ;
 }
 
 .relatedResources {
@@ -1175,14 +1177,14 @@ i.fa-info-circle:hover {
 
 .alphabet span:hover,
 .queryGroup:hover {
-  color: rgba(100, 23, 180, 1) !important;
+  color: #DA555B !important;
   -webkit-transition-duration: 0.4s;
   transition-duration: 0.4s;
 }
 
 .alphaActive {
-  color: rgba(100, 23, 180, 1) !important;
-  border-color: rgba(100, 23, 180, 1) !important;
+  color: #DA555B !important;
+  border-color: #DA555B !important;
 }
 
 .accordion-group,
