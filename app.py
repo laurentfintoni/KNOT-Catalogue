@@ -962,7 +962,7 @@ class View(object):
 
 		return render.view(user=session['username'], graphdata=data_labels,
 						graphID=name, title=title, stage=stage, base=base,properties=properties,
-						is_git_auth=is_git_auth,project=conf.myProject,knowledge_extractor=extractor)
+						is_git_auth=is_git_auth,project=conf.myProject,knowledge_extractor=extractor, res_class=res_class)
 
 	def POST(self,name):
 		""" Record web page

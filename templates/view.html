@@ -1,4 +1,4 @@
-$def with (user, graphdata, graphID, title, stage, base,properties,is_git_auth,project,knowledge_extractor)
+$def with (user, graphdata, graphID, title, stage, base,properties,is_git_auth,project,knowledge_extractor, res_class)
 
 $var user = user
 $var is_git_auth = is_git_auth
@@ -10,7 +10,6 @@ $var project = project
 			$if 'modified' in stage:
 				<span>draft</span>
 			</h2>
-			<script>console.log('$graphdata.items()')</script>
 			$for field,value in graphdata.items():
 				$if field != 'Title':
 				$ width_class = "col-md-12" if properties[field][1]=="WebsitePreview" else "col-md-5 col-sm-12" if (value and len(value[0]) <= 100) else 'col-md-12'
@@ -138,10 +137,25 @@ $var project = project
 				</section>
 	</section>
 	<section class="col-md-4 sideBoxes">
+		$if 'Activity' in res_class:
+			<section class="biblio">
+			<h3 class="biblio-label">Research Project</h3>
+			<p>This record catalogues an academic research project as an instance of the PROV-O Activity class. <a href="https://icdp-digital-library.github.io/KNOT/website/ENG/data_model.html" target="_blank">See the Data Model page for more information</a>.</p>
+			</section>
+		$elif 'Dataset' in res_class:
+			<section class="biblio">
+			<h3 class="biblio-label">Digital Object</h3>
+			<p>This record catalogues a digital scholarly object as an instance of the DCAT Dataset class. <a href="https://icdp-digital-library.github.io/KNOT/website/ENG/data_model.html" target="_blank">See the Data Model page for more information</a>.</p>
+			</section>
+		$elif 'DataService' in res_class:
+			<section class="biblio">
+			<h3 class="biblio-label">Web Service</h3>
+			<p>This record catalogues a digital scholarly object as an instance of the DCAT DataService class. <a href="https://icdp-digital-library.github.io/KNOT/website/ENG/data_model.html" target="_blank">See the Data Model page for more information</a>.</p>
+			</section>
 		<section class="biblio">
 			<h3 class="biblio-label">Permalink</h3>
-				<p>$base$graphID</p>
-		</section>
+			<p>$base$graphID</p>
+		</section>	
 	</section>
 	<!-- <section class="col-md-4 sideBoxes">
 		<section class="biblio">

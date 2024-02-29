@@ -72,9 +72,9 @@ a {
   text-decoration: none !important;
 }
 
-.info-item > p > a:hover {
+.info-item > p > a:hover, .biblio > p > a:hover {
   text-decoration: underline !important;
-  color: black !important;
+  color: #DA555B !important;
 }
 
 .logo img {
