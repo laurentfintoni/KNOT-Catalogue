@@ -64,15 +64,19 @@ header,
 }
 
 a {
-  text-decoration: underline !important;
-  color: black !important;
+  color: #DA555B !important;
 }
 
-.info-item > p > a {
+a:hover {
+  color: #DA555B !important ;
+}
+
+.info-item > p > a, .list > a {
   text-decoration: none !important;
+  color: black !important ;
 }
 
-.info-item > p > a:hover, .biblio > p > a:hover {
+.info-item > p > a:hover, .biblio > p > a:hover, .list > a:hover {
   text-decoration: underline !important;
   color: #DA555B !important;
 }
