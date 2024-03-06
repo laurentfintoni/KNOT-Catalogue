@@ -14,8 +14,9 @@ $var project = project
 				$if field != 'Title':
 				$ width_class = "col-md-12" if properties[field][1]=="WebsitePreview" else "col-md-5 col-sm-12" if (value and len(value[0]) <= 100) else 'col-md-12'
 				<section class="info-item $width_class">
+					<script>console.log('$properties[field]')</script>
 						$if isinstance(value[0],str):
-							<h4 class="articleSubtitle">$field<span class="tip" data-toggle="tooltip" data-placement="right" title="" data-original-title="$properties[field][2]"><i class="fas fa-info-circle"></i></span> </h4>
+							<h4 class="articleSubtitle">$field<span class="tip" data-toggle="tooltip" data-placement="right" title="" data-original-title="$properties[field][2] Property: $properties[field][0]"><i class="fas fa-info-circle"></i></span> </h4>
 							$if properties[field][1]=="Date" and (value[0].startswith("-") or len(value[0]) == 4):
 								$ value = value[0].replace("-", "") + " B.C." if value[0].startswith("-") else value[0].lstrip('0')
 							$else:
@@ -23,7 +24,7 @@ $var project = project
 							<p property="$properties[field][0]">$value</p>
 						$else:
 							$if len(value[0][1]) > 0:
-								<h4 class="articleSubtitle">$field<span class="tip" data-toggle="tooltip" data-placement="right" title="" data-original-title="$properties[field][2]"><i class="fas fa-info-circle"></i></span></h4>
+								<h4 class="articleSubtitle">$field<span class="tip" data-toggle="tooltip" data-placement="right" title="" data-original-title="$properties[field][2] Property: $properties[field][0]"><i class="fas fa-info-circle"></i></span></h4>
 								<p property="$properties[field][0]">
 								$for uri_value in value:
 									$if uri_value[0].startswith('Q') and uri_value == value[-1]:
