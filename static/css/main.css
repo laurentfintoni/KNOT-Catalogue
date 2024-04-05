@@ -65,6 +65,7 @@ header,
 
 a {
   color: #DA555B !important;
+  word-wrap: break-word;
 }
 
 a:hover {

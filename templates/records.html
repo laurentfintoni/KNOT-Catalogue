@@ -62,6 +62,7 @@ $var project=project
 										$elif filter[2] in ['Textbox', 'Vocab'] and (filter[3] == 'URI' or filter[3] == 'Place' or filter[3] == 'URL'):
 											$ elemID = res_id+filter[1].replace(' ','')
 											$ results = elemID+"results"
+											<script>console.log('')</script>
 											<section id="$elemID" class="indexURI">
 											</section>
 											<button class="showMore" type="button">show more</button>
