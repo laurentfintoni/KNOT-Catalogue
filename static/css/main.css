@@ -2035,3 +2035,20 @@ button#showTemplates {
 .fa-plus-circle, .fa-eye, .fa-trash{color: rgba(100,23,180,1); cursor: pointer;}
 .link_btn, .btn {white-space: nowrap;}
 .add_fields .link_btn {display: inline-block; margin-bottom: 8px}
+
+.grafoo-class {
+  background-color: #FFFF00;
+}
+.object-prop {
+  color: #000086 !important;
+}
+.data-prop {
+  color: #008700 !important;
+}
+code {
+  padding: 2px 4px;
+  font-size: 90%;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  color: inherit !important;
+}
