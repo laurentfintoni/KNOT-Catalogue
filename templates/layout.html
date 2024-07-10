@@ -37,11 +37,18 @@ $def with (content)
 					<span><a href="./" class="logo_header">$content.project</a>
 					<a href="records">Browse</a>
 					<a href="sparql">SPARQL endpoint</a></span>
-			
+					$if content.user == 'anonymous' or content.user == 'unknown':
+						$if content.is_git_auth == True:
+							<button class="btn btn-dark" onclick="window.location.href='gitauth'"  role="button" id="dropdownMenuLink">Member area <i class="fab fa-github"></i></button>
+						$else:
+							<button class="btn btn-dark" onclick="window.location.href='welcome-1'" role="button" id="dropdownMenuLink">Member area</button>
+					$else:
+							<button class="btn btn-dark" onclick="window.location.href='logout'" role="button" id="dropdownMenuLink">Logout</button>
 
-					<!-- <form action='' method='POST' id="create_form_menu">
+					<form action='' method='POST' id="create_form_menu">
 				    <button class="btn btn-dark" name="action" value="createRecord$time_now()" type="submit">Add a resource</button>
-				  </form> -->
+				  </form>
+					
 				</section>
 				<div class="searchmenu col-md-3 col-sm-12">
 					<!-- <i class="fas fa-search" aria-hidden="true"></i> -->
