@@ -168,3 +168,4 @@ cython_debug/
 static/.DS_Store
 conf.py
 conf.py
+static/.DS_Store

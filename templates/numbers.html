@@ -1,0 +1,52 @@
+$def with (user,is_git_auth,project)
+
+$var user = user
+$var is_git_auth=is_git_auth
+$var project = project
+
+<header class="row">
+	<h3 class="col-md-12 col-lg-12 col-sm-12">$project in numbers</h3>
+</header>
+<section class="row articleBox">
+	<section class="col-md-12 col-sm-12">
+
+		<section class="row counters">
+		  <h2 class="col-md-6 col-sm-12">Something Something</h2>
+		  <section class="counterBox col-md-2 col-sm-5">
+			<p class="counterNum">10</p>
+			<p class="counterLabel">Authors</p>
+		  </section>
+		  <section class="counterBox col-md-2 col-sm-5">
+			<p class="counterNum">10</p>
+			<p class="counterLabel">Publications</p>
+		  </section>
+		  <section class="counterBox col-md-2 col-sm-5">
+			<p class="counterNum">10</p>
+			<p class="counterLabel">Languages</p>
+		  </section>
+		  <section class="counterBox col-md-2 col-sm-5">
+			<p class="counterNum">10</p>
+			<p class="counterLabel">Publishers</p>
+		  </section>
+		  <section class="counterBox col-md-2 col-sm-5">
+			<p class="counterNum">10</p>
+			<p class="counterLabel">Journals</p>
+		  </section>
+		  <section class="counterBox col-md-2 col-sm-5">
+			<p class="counterNum">10</p>
+			<p class="counterLabel">Topics</p>
+		  </section>
+	
+		</section>
+		<hr class="charthr">
+		<section class="stats_block row">
+			<div id="chartdiv"></div>
+			<script src="/static/js/am_script.js"></script>
+		</section>
+</section>
+
+<!-- amcharts scripts -->
+<script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/map.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/geodata/italyLow.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>

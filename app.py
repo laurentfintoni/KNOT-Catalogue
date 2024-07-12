@@ -54,6 +54,7 @@ urls = (
 	prefix + '/modify-(.+)', 'Modify',
 	prefix + '/review-(.+)', 'Review',
 	prefix + '/documentation', 'Documentation',
+	prefix + '/numbers', 'Numbers',
 	prefix + '/records', 'Records',
 	prefix + '/model', 'DataModel',
 	prefix + '/view-(.+)', 'View',
@@ -882,6 +883,21 @@ class Documentation:
 
 	def POST(self):
 		""" Editorial guidelines"""
+
+		data = web.input()
+		if 'action' in data:
+			create_record(data)
+
+class Numbers:
+	def GET(self):
+		""" Viz """
+		web.header("Cache-Control", "no-cache, max-age=0, must-revalidate, no-store")
+		is_git_auth = github_sync.is_git_auth()
+		return render.numbers(user=session['username'],
+									is_git_auth=is_git_auth,project=conf.myProject)
+
+	def POST(self):
+		""" Viz """
 
 		data = web.input()
 		if 'action' in data:

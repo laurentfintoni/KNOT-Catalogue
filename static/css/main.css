@@ -2052,3 +2052,16 @@ code {
   border-radius: 4px;
   color: inherit !important;
 }
+
+/* CHARTS GCE only */
+.counterBox {border: solid 2px var(--color_violet); padding: 1.5em 2em; margin: 1em;}
+.counterBox * { color: var(--color_violet);}
+.counterNum {font-size: 3em;}
+.charthr {margin: 5em 0px;}
+.stats_block p {font-size: 1.4em;}
+.chart_caption {font-size: 0.8em !important; color: grey;}
+/* .intro_explore img {max-width: auto; height: 40vw; border-radius: 50%; } */
+#chartdiv {
+  width: auto;
+  height: 500px;
+}
