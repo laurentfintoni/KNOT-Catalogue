@@ -8,45 +8,50 @@ $var project = project
 	<h3 class="col-md-12 col-lg-12 col-sm-12">$project in numbers</h3>
 </header>
 <section class="row articleBox">
-	<section class="col-md-12 col-sm-12">
-
+	<section class="col-md-12 col-sm-12" id="numbers">
+		<p>The KNOT catalogue is part of the KNOT pilot, a three-year project (2023-2025) tasked with investigating ways to integrate the digital cultural heritage of Italian universities into the national infrastructure being built by the Central Institute for the Digitization of Cultural Heritage (ICDP) - Digital Library. </p>
 		<section class="row counters">
-		  <h2 class="col-md-6 col-sm-12">Something Test</h2>
 		  <section class="counterBox col-md-2 col-sm-5">
-			<p class="counterNum">10</p>
-			<p class="counterLabel">Authors</p>
+			<p class="counterNum">100</p>
+			<p class="counterLabel">Research Projects</p>
 		  </section>
 		  <section class="counterBox col-md-2 col-sm-5">
-			<p class="counterNum">10</p>
-			<p class="counterLabel">Publications</p>
+			<p class="counterNum">35</p>
+			<p class="counterLabel">Digital Objects</p>
 		  </section>
 		  <section class="counterBox col-md-2 col-sm-5">
-			<p class="counterNum">10</p>
-			<p class="counterLabel">Languages</p>
-		  </section>
-		  <section class="counterBox col-md-2 col-sm-5">
-			<p class="counterNum">10</p>
-			<p class="counterLabel">Publishers</p>
-		  </section>
-		  <section class="counterBox col-md-2 col-sm-5">
-			<p class="counterNum">10</p>
-			<p class="counterLabel">Journals</p>
-		  </section>
-		  <section class="counterBox col-md-2 col-sm-5">
-			<p class="counterNum">10</p>
-			<p class="counterLabel">Topics</p>
+			<p class="counterNum">96</p>
+			<p class="counterLabel">Web Services</p>
 		  </section>
 	
 		</section>
 		<hr class="charthr">
 		<section class="stats_block row">
-			<div id="chartdiv"></div>
-			<script src="/static/js/am_script.js"></script>
+			<section class="col-md-5 col-sm-12">
+				<h2>Which universities are associated with research projects?</h2>
+				<p>This map shows how a majority of projects are associated with universities based in the north of Italy, and in particular institutions with strong humanities departments. Each dot corresponds to a university and the number to the projects it is associated with.</p>
+			  </section>
+			<div id="chartdiv" class="col-md-6 col-sm-12"></div>
+			<script type="text/javascript" src="/static/js/amcharts_map.js"></script>
+		</section>
+		<hr class="charthr">
+		<section class="stats_block row">
+			<div id="chartdiv_2" class="col-md-6 col-sm-12"></div>
+			<script type="text/javascript" src="/static/js/amcharts_object_pie.js"></script>
+			<section class="col-md-5 col-sm-12">
+				<h2>What types of digital scholarly objects are being produced by humanities research in Italy?</h2>
+				<p>Software and 'generic' datasets, most often RDF datasets, are the most prominent.</p>
+			</section>
+		</section>
+		<hr class="charthr">
+		<section class="stats_block row">
+			<section class="col-md-5 col-sm-12">
+				<h2>What types of services are being offered for scholarly digital objects?</h2>
+				<p>The most common types of services are database and digital editions, reflecting the importance of philology within Italian humanities. Digital versions of archives, catalogues, and libraries are also well represented alongside digital platform which offers flexibility in how users can interact with objects.</p>
+			  </section>
+			<div id="chartdiv_3" class="col-md-6 col-sm-12"></div>
+			<script type="text/javascript" src="/static/js/amcharts_service_pie.js"></script>
 		</section>
 </section>
 
-<!-- amcharts scripts -->
-<script src="https://cdn.amcharts.com/lib/5/index.js"></script>
-<script src="https://cdn.amcharts.com/lib/5/map.js"></script>
-<script src="https://cdn.amcharts.com/lib/5/geodata/italyLow.js"></script>
-<script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+
