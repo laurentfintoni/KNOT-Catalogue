@@ -24,7 +24,7 @@ OL = Namespace("http://openlibrary.org/works/")
 ULAN = Namespace("http://vocab.getty.edu/ulan/")
 AAT = Namespace("http://vocab.getty.edu/aat/")
 PROV = Namespace("http://www.w3.org/ns/prov#")
-GEO = Namespace("https://sws.geonames.org/")
+GEO = Namespace("https://www.geonames.org/")
 # CHANGE remove
 SCHEMA = Namespace("https://schema.org/")
 base = conf.base

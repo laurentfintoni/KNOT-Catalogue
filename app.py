@@ -1005,15 +1005,31 @@ class Term(object):
 			the ID of the term, generally the last part of the URL
 		"""
 		web.header("Cache-Control", "no-cache, max-age=0, must-revalidate, no-store")
-		data = queries.describeTerm(name)
+		uri = mapping.getRightURIbase(name)
+		data = queries.describeTerm(uri)
 		is_git_auth = github_sync.is_git_auth()
 
-		count = len([ result["subject"]["value"] \
+		results_by_class = {}
+		appears_in = [ result["subject"]["value"] \
 					for result in data["results"]["bindings"] \
-					if (name in result["object"]["value"] and result["object"]["type"] == 'uri') ])
+					if (name in result["object"]["value"] and result["object"]["type"] == 'uri') ]		
+
+		with open(TEMPLATE_LIST) as tpl_list:
+			res_templates = json.load(tpl_list)
+		for res_uri in appears_in:
+			res_class = queries.getClass(res_uri)
+			res_type = next(t["name"] for t in res_templates if t["type"] == res_class)
+			if res_type in results_by_class:
+				results_by_class[res_type]['results'].append(res_uri)
+			else:
+				results_by_class[res_type] = {'class':res_class, 'results':[res_uri]}
+
+		count = len(appears_in)
+		map_coordinates = (queries.geonames_geocoding(uri)) if uri.startswith("https://www.geonames.org/") else None
 
 		return render.term(user=session['username'], data=data, count=count,
-						is_git_auth=is_git_auth,project=conf.myProject,base=conf.base,name=name)
+						is_git_auth=is_git_auth,project=conf.myProject,base=conf.base,
+						uri=uri,name=name,results=results_by_class,map=map_coordinates)
 
 	def POST(self,name):
 		""" controlled vocabulary term web page

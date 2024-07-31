@@ -31,39 +31,39 @@ $var project = project
 										<!-- wikidata uri -->
 										
 											<link property="sameAs" url="http://www.wikidata.org/entity/$uri_value[0]"/>
-											<a class="wikiEntity" target='_blank' href="http://www.wikidata.org/entity/$uri_value[0]">$uri_value[1]</a>.
+											<a class="wikiEntity" target='_blank' href="term-$uri_value[0]">$uri_value[1]</a>.
 									
 									$elif uri_value[0].startswith('Q'):
 										<!-- wikidata uri -->
 										
 											<link property="sameAs" url="http://www.wikidata.org/entity/$uri_value[0]"/>
-											<a class="wikiEntity" target='_blank' href="http://www.wikidata.org/entity/$uri_value[0]">$uri_value[1]</a>,
+											<a class="wikiEntity" target='_blank' href="term-$uri_value[0]">$uri_value[1]</a>,
 									
 									$elif isnumeric(uri_value[0]) and uri_value == value[-1]:
 										<!-- geonames uri -->
 
 											<link property="sameAs" url="https://sws.geonames.org/$uri_value[0]"/>
-											<a class="geoEntity" target='_blank' href="https://sws.geonames.org/$uri_value[0]">$uri_value[1]</a>.
+											<a class="geoEntity" target='_blank' href="term-$uri_value[0]">$uri_value[1]</a>.
 									
 									$elif isnumeric(uri_value[0]):
 										<!-- geonames uri -->
 
 											<link property="sameAs" url="https://sws.geonames.org/$uri_value[0]"/>
-											<a class="geoEntity" target='_blank' href="https://sws.geonames.org/$uri_value[0]">$uri_value[1]</a>,
+											<a class="geoEntity" target='_blank' href="term-$uri_value[0]">$uri_value[1]</a>,
 
 									$elif uri_value[0].startswith("viaf") and uri_value == value[-1]:
 										<!-- viaf uri -->
 
-											<link property="sameAs" url="http://www.viaf.org/viaf/$uri_value[0][4:]"/>
+											<link property="sameAs" url="https://viaf.org/viaf/$uri_value[0][4:]"/>
 											<a class="viafEntity" target='_blank'
-											 href="http://www.viaf.org/viaf/$uri_value[0][4:]">$uri_value[1]</a>.
+											 href="term-$uri_value[0][4:]">$uri_value[1]</a>.
 
 									$elif uri_value[0].startswith("viaf"):
 										<!-- viaf uri -->
 
-											<link property="sameAs" url="http://www.viaf.org/viaf/$uri_value[0][4:]"/>
+											<link property="sameAs" url="https://viaf.org/viaf/$uri_value[0][4:]"/>
 											<a class="viafEntity" target='_blank'
-											 href="http://www.viaf.org/viaf/$uri_value[0][4:]">$uri_value[1]</a>,
+											 href="term-$uri_value[0][4:]">$uri_value[1]</a>,
 									
 									$elif 'http' in uri_value[0] and len(value) == 1:
 										<!-- urls -->
@@ -79,7 +79,6 @@ $var project = project
 										<!-- urls -->
 										<link property="url" url="$uri_value[0]"/>
 										<a target='_blank' href="$uri_value[0]">$uri_value[1]</a>,
-
 									
 									$elif 'http' not in uri_value[0] and uri_value == value[-1]:
 										<!-- local resource -->

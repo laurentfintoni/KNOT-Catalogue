@@ -8,6 +8,7 @@ from rdflib.plugins.sparql import prepareQuery
 from pymantic import sparql
 import utils as u
 import urllib.parse
+import requests
 
 u.reload_config()
 
@@ -268,12 +269,12 @@ def getData(graph,res_template):
 
 def describeTerm(name):
 	""" ask if the resource exists, then describe it."""
-	ask = """ASK { ?s ?p <""" +conf.base+name+ """> .}"""
+	ask = """ASK { ?s ?p <""" +name+ """> .}"""
 	results = hello_blazegraph(ask)
 	if results["boolean"] == True: # new entity
-		describe = """DESCRIBE <"""+conf.base+name+ """>"""
+		describe = """DESCRIBE <"""+name+ """>"""
 		return hello_blazegraph(describe)
-	else: # vocab term
+	else: #Â vocab term
 		ask = """ASK { ?s ?p ?o .
 				filter( regex( str(?o), '"""+name+"""$' ) )
 				}"""
@@ -352,3 +353,14 @@ def retrieve_extractions(res_uri):
 		next_id = max(ke_dict[res_uri.split("/")[-1]], key=lambda x: int(x["internalID"]))
 		res_dict['next_id'] = int(next_id['internalID']) + 1
 	return res_dict
+
+# GET LATITUDE AND LONGITUDE GIVEN A GEONAMES URI
+def geonames_geocoding(geonames_uri):
+	uri_id = geonames_uri.replace("https://www.geonames.org/","")
+	search_url = f'http://api.geonames.org/getJSON?geonameId={uri_id}&username=palread'
+	print(search_url)
+	response = requests.get(search_url)
+	data = response.json()
+	latitude = data['lat']
+	longitude = data['lng']
+	return latitude, longitude

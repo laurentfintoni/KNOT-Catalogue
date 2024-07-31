@@ -305,8 +305,27 @@ $(document).ready(function() {
         tabTrigger.show()
       })
     });
+  // show entity icons in "term" page
+  $("h3.articleSubtitle + a").each(function() {
+    if ($(this).attr('href').startsWith('http://www.wikidata.org/entity/')) {
+      $(this).parent().append(wd_img);
+    } else if ($(this).attr('href').startsWith('https://sws.geonames.org/')) {
+      $(this).parent().append(geo_img);
+    } else if ($(this).attr('href').startsWith('http://www.viaf.org/viaf/')) {
+      $(this).parent().append(viaf_img);
+    }
+  })
   // show related resources in "term" page
-  $(".showRes").on("click", {count: $(".showRes").data("count"), uri: $(".showRes").data("uri"), limit_query: $(".showRes").data("limit"), offset_query: $(".showRes").data("offset")}, searchResources);
+  $(".showRes").on("click", function() {
+    var data = {
+        count: $(this).data("count"),
+        uri: $(this).data("uri"),
+        class: $(this).data("class"),
+        limit_query: $(this).data("limit"),
+        offset_query: $(this).data("offset")
+    };
+    searchResources({ data: data }, $(this));
+  });
 
   // sortable blocks in TEMPLATE setup
   moveUpAndDown() ;
@@ -1308,46 +1327,51 @@ function saveTheWeb(input_url) {
 ///////////////
 
 // search catalogue resources on click and offset
-function searchResources(event) {
+function searchResources(event, element) {
   var uri = event.data.uri;
   var count = event.data.count;
-  var offset_query = event.data.offset_query;
-  var limit_query = event.data.limit_query;
-
-  if (offset_query == "0") {
-    var query = "select distinct ?o ?label "+in_graph+" where { ?o ?p <"+uri+"> ; rdfs:label ?label . } ORDER BY ?o LIMIT "+limit_query+" "
+  var resClass = event.data.class;
+  var offsetQuery = parseInt(event.data.offset_query, 10);
+  var limitQuery = parseInt(event.data.limit_query, 10);
+  var query;
+  
+  if (offsetQuery === 0) {
+      query = `select distinct ?o ?label ${in_graph} where { ?o ?p <${uri}> ; a <${resClass}> ; rdfs:label ?label . } ORDER BY ?o LIMIT ${limitQuery}`;
   } else {
-    var query = "select distinct ?o ?label "+in_graph+" where { ?o ?p <"+uri+"> ; rdfs:label ?label . } ORDER BY ?o OFFSET "+offset_query+" LIMIT "+limit_query+" "
+      query = `select distinct ?o ?label ${in_graph} where { ?o ?p <${uri}> ; a <${resClass}> ; rdfs:label ?label . } ORDER BY ?o OFFSET ${offsetQuery} LIMIT ${limitQuery}`;
   }
-  var encoded = encodeURIComponent(query)
+  
+  var encoded = encodeURIComponent(query);
   $.ajax({
-        type: 'GET',
-        url: myPublicEndpoint+'?query=' + encoded,
-        headers: { Accept: 'application/sparql-results+json; charset=utf-8'},
-        success: function(returnedJson) {
+      type: 'GET',
+      url: myPublicEndpoint + '?query=' + encoded,
+      headers: { Accept: 'application/sparql-results+json; charset=utf-8'},
+      success: function(returnedJson) {
           if (!returnedJson.results.bindings.length) {
-            $(".relatedResources").append("<div class='wditem noresults'>No more resources</div>");
+              $("[data-class='" + resClass + "'] + br + .related-resources").append("<div class='wditem noresults'>No more resources</div>");
           } else {
-            for (i = 0; i < returnedJson.results.bindings.length; i++) {
-              var myUrl = returnedJson.results.bindings[i].o.value;
-              // exclude named graphs from results
-              if ( myUrl.substring(myUrl.length-1) != "/") {
-                var resID = myUrl.substr(myUrl.lastIndexOf('/') + 1)
-                var newItem = $("<div id='"+resID+"' class='wditem'><a class='blue orangeText' target='_blank' href='view-"+resID+"'><i class='fas fa-external-link-alt'></i></a> <span class='orangeText' data-id=" + returnedJson.results.bindings[i].o.value + "'>" + decodeURIComponent( unescape(returnedJson.results.bindings[i].label.value)) + "</span></div>").hide();
-                $(".relatedResources").prepend(newItem);
-                newItem.show('slow');
-                };
-              };
-          };
-        }
+              for (let i = 0; i < returnedJson.results.bindings.length; i++) {
+                  var myUrl = returnedJson.results.bindings[i].o.value;
+                  // exclude named graphs from results
+                  if (myUrl.substring(myUrl.length - 1) !== "/") {
+                      var resID = myUrl.substr(myUrl.lastIndexOf('/') + 1);
+                      var newItem = $("<div id='" + resID + "' class='wditem'><a class='blue orangeText' target='_blank' href='view-" + resID + "'><i class='fas fa-external-link-alt'></i></a> <span class='orangeText' data-id='" + myUrl + "'>" + decodeURIComponent(unescape(returnedJson.results.bindings[i].label.value)) + "</span></div>").hide();
+                      $(element).parent().find('.related-resources').prepend(newItem);
+                      newItem.show('slow');
+                  }
+              }
+          }
+      }
   });
+  
   // update offset query
-  var offset_query = offset_query+limit_query ;
-  $(".showRes").html("show more");
-  event.data.offset_query = offset_query;
-  if (event.data.offset_query > count) {
-    $(".showRes").hide();
-    //$(".hideRes").show();
+  offsetQuery += limitQuery;
+  $(element).data('offset', offsetQuery);
+  if (offsetQuery >= count) {
+      $(element).hide();
+      //$(".hideRes").show();
+  } else {
+    $(element).html("show more");
   }
 };
 
