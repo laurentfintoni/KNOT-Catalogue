@@ -23,6 +23,11 @@ $var project = project
 					<h3 class="articleSubtitle">View </h3><a href="$uri">external link</a>
 				</section>
 			<section class="info-item">
+					<h3 class="articleSubtitle">Permalink</h3>
+					<span class="small">$uri</span>
+					<p></p>
+			</section>
+			<section class="info-item">
 				$ s = 's' if count > 1 else ''
 				<h3 class="articleSubtitle">Appears in $count resource$s</h3>
 				$for res_class in results:
@@ -55,11 +60,6 @@ $var project = project
 
 
 			<hr/>
-			<section class="info-item">
-				<h3 class="articleSubtitle">URI</h3>
-				<span class="small">$uri</span>
-				<p></p>
-			</section>
 		$else:
 			<h2>ooops, we don't have a page for this yet.</h2>
 	</section>
