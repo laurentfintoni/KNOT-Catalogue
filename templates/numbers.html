@@ -9,8 +9,12 @@ $var project = project
 </header>
 <section class="row articleBox">
 	<section class="col-md-12 col-sm-12" id="numbers">
-		<p>The KNOT catalogue is part of the KNOT pilot, a three-year project (2023-2025) tasked with investigating ways to integrate the digital cultural heritage of Italian universities into the national infrastructure being built by the Central Institute for the Digitization of Cultural Heritage (ICDP) - Digital Library. </p>
-		<section class="row counters">
+		<h2>Italian Universities & Digital Cultural Heritage</h2>
+		<p>The digital objects created by academic research represent a multifaceted and interesting, yet unexplored, example of the Digital Cultural Heritage (DCH) of Italian universities. </p>
+		<p>These scholarly digital objects are the focus of the KNOT catalogue and in particular the objects created within the academic field of the humanities, with special attention to Digital Humanities (DH) projects. The humanities is an ideal field for this inquiry, as cultural heritage has been central to Italian humanities research for years while the DH promote interdisciplinarity and project-oriented practices that create new digital scholarly objects aligned with the heritage values and <a href="https://icdp-digital-library.github.io/KNOT/index.html" target="_blank">goals of the KNOT project</a>.</p>
+ 		<p>The scholarly digital objects catalogued by KNOT include collections of information (such as datasets) and digital forms that enable interaction with information (software, data services, visualization tools). Within the catalogue these are categorized as Digital Objects and Web Services respectively.</p>
+		<p>This page explores the catalogue through visualizations, highlighting some of the more interesting aspects of the dataset.</p>
+		<section class="row justify-content-center counters">
 		  <section class="counterBox col-md-2 col-sm-5">
 			<p class="counterNum">100</p>
 			<p class="counterLabel">Research Projects</p>
@@ -28,29 +32,61 @@ $var project = project
 		<hr class="charthr">
 		<section class="stats_block row">
 			<section class="col-md-5 col-sm-12">
-				<h2>Which universities are associated with research projects?</h2>
-				<p>This map shows how a majority of projects are associated with universities based in the north of Italy, and in particular institutions with strong humanities departments. Each dot corresponds to a university and the number to the projects it is associated with.</p>
+				<h2>Which universities are represented in the catalogue?</h2>
+				<p>A total of 42 Italian universities are included in the catalogue as being associated with a research project. On this map, we can see that while the north of the country is most represented, as might be expected, humanities research is nonetheless active across the country.</p>
+				<p>Alongside Italian universities, the catalogue also includes projects from two major research centers: the National Research Council (CNR), based in Rome, and the Fondazione Bruno Kessler, based in Trento. Additionally, CNR institutes are also included alongside local partners (most often responsible for providing access to specific cultural heritage materials) and interational partners. Funding bodies are not included in the catalogue.</p>
 			  </section>
 			<div id="chartdiv" class="col-md-6 col-sm-12"></div>
-			<script type="text/javascript" src="static/js/amcharts_map.js"></script>
+			<script type="text/javascript" src="static/js/amcharts_map_1.js"></script>
 		</section>
 		<hr class="charthr">
 		<section class="stats_block row">
+			<div id="chartdiv_1" class="col-md-6 col-sm-12"></div>
+			<script type="text/javascript" src="static/js/amcharts_sunburst.js"></script>
+			<section class="col-md-5 col-sm-12">
+				<h2>Departments and Research Centres</h2>
+				<p>Beyond top-level institutions, the catalogue also records the relevant departments, faculties, or research centres and laboratories involved in research projects when that information is available.</p>
+				<p>This chart shows how the projects from the six institutions that are most represented in the catalogue - five universities and the CNR - break down in terms of which specific units are involved.</p>
+			  </section>
+		</section>
+		<hr class="charthr">
+		<section class="stats_block row">
+			<section class="col-md-5 col-sm-12">
+				<h2>What types of objects* are made available by humanities research in Italy?</h2>
+				<p>Despite the high number of projects catalogued, less than half of them make available a digital object (intended as a collection of information) for download or reuse. Of the 35 such digital objects catalogued, software, 'generic' datasets (most often RDF datasets), and corpora are the most prominent reflecting the prevalence of textual studies in Italian humanities, the popularity of Linked Open Data, and the importance of creating tools that can support further research and production of DCH.</p>
+				<p>*The object types used by KNOT are taken from a <a href="https://icdp-digital-library.github.io/KNOT/website/ENG/data_model_cvs.html" target="_blank">SKOS-based taxonomy</a> developed as a starting point for ongoing reflection within the field as to how to approach the classification of the objects produced by research.</p>
+			</section>
 			<div id="chartdiv_2" class="col-md-6 col-sm-12"></div>
 			<script type="text/javascript" src="static/js/amcharts_object_pie.js"></script>
+		</section>
+		<hr class="charthr">
+		<section class="stats_block row">
+			<div id="chartdiv_3" class="col-md-6 col-sm-12"></div>
+			<script type="text/javascript" src="static/js/amcharts_service_pie.js"></script>
 			<section class="col-md-5 col-sm-12">
-				<h2>What types of digital scholarly objects are being produced by humanities research in Italy?</h2>
-				<p>Software and 'generic' datasets, most often RDF datasets, are the most prominent.</p>
-			</section>
+				<h2>What types of services does humanities research offer?</h2>
+				<p>On the other hand, almost all projects offer access to digital objects that enable interaction with the data created by the project. The most common types of web services made available are databases, accessible via search interfaces and reflecting a more traditional approach to making research data public, digital editions, which reflect the importance of philology within Italian humanities, and digital platforms, which offer flexibility in how users can interact with data.</p> 
+				<p>It is also interesting to note that of the 15 digital editions in the catalogue, five of them use the EVT software, itself one of the catalogued digital objects, underlining how useful tools can help produce further scholarly digital objects.</p>
+			  </section>
 		</section>
 		<hr class="charthr">
 		<section class="stats_block row">
 			<section class="col-md-5 col-sm-12">
-				<h2>What types of services are being offered for scholarly digital objects?</h2>
-				<p>The most common types of services are database and digital editions, reflecting the importance of philology within Italian humanities. Digital versions of archives, catalogues, and libraries are also well represented alongside digital platform which offers flexibility in how users can interact with objects.</p>
-			  </section>
-			<div id="chartdiv_3" class="col-md-6 col-sm-12"></div>
-			<script type="text/javascript" src="static/js/amcharts_service_pie.js"></script>
+				<h2>Which are the most prominent disciplines and subjects?</h2>
+				<p>The KNOT catalogue records the academic disciplines and primary subjects of each project, using the Italian CUN Area system for the former based on the specifics of the project and its contributors. This chart shows the most prominent disciplines and subjects within the catalogue.</p> 
+				<p>There are a total of 98 disciplines and primary subjects included in the catalogue though those who do not appear more than 4 times are excluded from this chart for clarity. The biggest takeaway from this chart is the prevalence of Informatics, essential to any digital project, alongside Archival Sciences and Literature studies reflecting the roots of the DH in humanities computing.</p>
+			</section>
+			<div id="chartdiv_5" class="col-md-6 col-sm-12"></div>
+			<script type="text/javascript" src="static/js/amcharts_bar.js"></script>
+		</section>
+		<hr class="charthr">
+		<section class="stats_block row">
+			<div id="chartdiv_4" class="col-md-6 col-sm-12"></div>
+			<script type="text/javascript" src="static/js/amcharts_wc.js"></script>
+			<section class="col-md-5 col-sm-12">
+				<h2>What are the research projects and their objects about?</h2>
+				<p>The KNOT catalogue records the publicly available description for each project, whether available in English or Italian. This wordcloud shows the most prominent words (appearing 5 or more times) from across all these descriptions revealing the importance of textual data and linguistics, certain historical figures, such as Dante, key concepts such as collaboration, open data, and semanticity, and key physical formats such as letters and manuscripts and digital formats such as editions and databases.</p>
+			</section>
 		</section>
 </section>
 
