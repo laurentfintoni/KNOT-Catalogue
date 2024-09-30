@@ -169,3 +169,4 @@ cython_debug/
 static/.DS_Store
 conf.py
 static/js/conf.js
+conf.py
