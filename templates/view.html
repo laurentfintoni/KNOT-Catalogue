@@ -56,14 +56,56 @@ $var project = project
 
 											<link property="sameAs" url="https://viaf.org/viaf/$uri_value[0][4:]"/>
 											<a class="viafEntity" target='_blank'
-											 href="term-$uri_value[0][4:]">$uri_value[1]</a>.
+											 href="term-$uri_value[0]">$uri_value[1]</a>.
 
 									$elif uri_value[0].startswith("viaf"):
 										<!-- viaf uri -->
 
 											<link property="sameAs" url="https://viaf.org/viaf/$uri_value[0][4:]"/>
 											<a class="viafEntity" target='_blank'
-											 href="term-$uri_value[0][4:]">$uri_value[1]</a>,
+											 href="term-$uri_value[0]">$uri_value[1]</a>,
+
+									$elif uri_value[0].startswith("tadirah") and uri_value == value[-1]:
+										<!-- tadirah uri -->
+	 
+											<link property="sameAs" url="https://vocabs.dariah.eu/tadirah/$uri_value[0][8:]"/>
+											<a class="tadirahEntity" target='_blank'
+											href="term-$uri_value[0]">$uri_value[1]</a>.
+	 
+									$elif uri_value[0].startswith("tadirah"):
+										<!-- tadirah uri -->
+
+											<link property="sameAs" url="https://vocabs.dariah.eu/tadirah/$uri_value[0][8:]"/>
+											<a class="tadirahEntity" target='_blank'
+											href="term-$uri_value[0]">$uri_value[1]</a>,
+									
+									$elif uri_value[0].startswith("ad-") and uri_value == value[-1]:
+										<!-- academic disciplines uri -->
+	
+										<link property="sameAs" url="https://w3id.org/italia/controlled-vocabulary/classifications-for-universities/academic-disciplines/$uri_value[0][3:]"/>
+										<a class="govEntity" target='_blank'
+										href="term-$uri_value[0]">$uri_value[1]</a>.
+		 
+									$elif uri_value[0].startswith("ad-"):
+										<!-- academic disciplines uri -->
+
+										<link property="sameAs" url="https://w3id.org/italia/controlled-vocabulary/classifications-for-universities/academic-disciplines/$uri_value[0][3:]"/>
+										<a class="govEntity" target='_blank'
+										href="term-$uri_value[0]">$uri_value[1]</a>,
+
+									$elif uri_value[0].startswith("lc-") and uri_value == value[-1]:
+										<!-- licenses uri -->
+	
+										<link property="sameAs" url="https://w3id.org/italia/controlled-vocabulary/licences/$uri_value[0][3:]"/>
+										<a class="govEntity" target='_blank'
+										href="term-$uri_value[0]">$uri_value[1]</a>.
+		 
+									$elif uri_value[0].startswith("lc-"):
+										<!-- licenses uri -->
+
+										<link property="sameAs" url="https://w3id.org/italia/controlled-vocabulary/licences/$uri_value[0][3:]"/>
+										<a class="govEntity" target='_blank'
+										href="term-$uri_value[0]">$uri_value[1]</a>,
 									
 									$elif 'http' in uri_value[0] and len(value) == 1:
 										<!-- urls -->

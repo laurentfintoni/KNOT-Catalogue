@@ -250,6 +250,12 @@ def getData(graph,res_template):
 						uri = v['value'].rsplit('/', 1)[-1]
 					elif 'viaf' in v['value']:
 						uri = "viaf"+v['value'].rsplit('/', 1)[-1] # Keep "viaf" at the beginning: needed in mapping.py (getRightURIbase)
+					elif '/tadirah/' in v['value']:
+						uri = "tadirah-"+v['value'].rsplit('/', 1)[-1]
+					elif '/academic-disciplines/' in v['value']:
+						uri = "ad-"+v['value'].rsplit('/', 1)[-1]
+					elif '/licences/' in v['value']:
+						uri = "lc-"+v['value'].rsplit('/', 1)[-1]
 					else:
 						uri = v['value']
 					label = [value['value'] for key,value in result.items() if key == k+'_label'][0]
@@ -353,6 +359,56 @@ def retrieve_extractions(res_uri):
 		next_id = max(ke_dict[res_uri.split("/")[-1]], key=lambda x: int(x["internalID"]))
 		res_dict['next_id'] = int(next_id['internalID']) + 1
 	return res_dict
+
+# Visualizations
+
+def counter_projects():
+	""" """
+
+	q = """
+		PREFIX base: <"""+conf.base+""">
+		PREFIX prov: <http://www.w3.org/ns/prov#>
+		SELECT (COUNT(DISTINCT ?project) as ?count)
+		WHERE { ?project a prov:Activity . }
+
+		"""
+	count = []
+	results = hello_blazegraph(q)
+	for result in results["results"]["bindings"]:
+		count.append(result["count"]["value"])
+	return int(count[0]) if len(count) > 0 else 0
+
+def counter_objects():
+	""" """
+
+	q = """
+		PREFIX base: <"""+conf.base+""">
+		PREFIX dcat: <http://www.w3.org/ns/dcat#>
+		SELECT (COUNT(DISTINCT ?object) as ?count)
+		WHERE { ?object a dcat:Dataset . }
+
+		"""
+	count = []
+	results = hello_blazegraph(q)
+	for result in results["results"]["bindings"]:
+		count.append(result["count"]["value"])
+	return int(count[0]) if len(count) > 0 else 0
+
+def counter_services():
+	""" """
+
+	q = """
+		PREFIX base: <"""+conf.base+""">
+		PREFIX dcat: <http://www.w3.org/ns/dcat#>
+		SELECT (COUNT(DISTINCT ?object) as ?count)
+		WHERE { ?object a dcat:DataService . }
+
+		"""
+	count = []
+	results = hello_blazegraph(q)
+	for result in results["results"]["bindings"]:
+		count.append(result["count"]["value"])
+	return int(count[0]) if len(count) > 0 else 0
 
 # GET LATITUDE AND LONGITUDE GIVEN A GEONAMES URI
 def geonames_geocoding(geonames_uri):

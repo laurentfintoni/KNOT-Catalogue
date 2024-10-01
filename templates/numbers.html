@@ -1,4 +1,4 @@
-$def with (user,is_git_auth,project)
+$def with (user,is_git_auth,project, projects_count, objects_count, services_count)
 
 $var user = user
 $var is_git_auth=is_git_auth
@@ -16,15 +16,15 @@ $var project = project
 		<p>This page explores the catalogue through visualizations, highlighting some of the more interesting aspects of the dataset.</p>
 		<section class="row justify-content-center counters">
 		  <section class="counterBox col-md-2 col-sm-5">
-			<p class="counterNum">100</p>
+			<p class="counterNum">$projects_count</p>
 			<p class="counterLabel">Research Projects</p>
 		  </section>
 		  <section class="counterBox col-md-2 col-sm-5">
-			<p class="counterNum">35</p>
+			<p class="counterNum">$objects_count</p>
 			<p class="counterLabel">Digital Objects</p>
 		  </section>
 		  <section class="counterBox col-md-2 col-sm-5">
-			<p class="counterNum">96</p>
+			<p class="counterNum">$services_count</p>
 			<p class="counterLabel">Web Services</p>
 		  </section>
 	

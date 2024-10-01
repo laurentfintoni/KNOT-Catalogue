@@ -18,13 +18,16 @@ u.reload_config()
 
 # NAMESPACES
 WD = Namespace("http://www.wikidata.org/entity/")
-VIAF = Namespace("http://www.viaf.org/viaf/")
+VIAF = Namespace("https://viaf.org/viaf/")
 WDP = Namespace("http://www.wikidata.org/wiki/Property:")
 OL = Namespace("http://openlibrary.org/works/")
 ULAN = Namespace("http://vocab.getty.edu/ulan/")
 AAT = Namespace("http://vocab.getty.edu/aat/")
 PROV = Namespace("http://www.w3.org/ns/prov#")
 GEO = Namespace("https://www.geonames.org/")
+TADIRAH = Namespace("https://vocabs.dariah.eu/tadirah/")
+DISCIPLINES = Namespace("https://w3id.org/italia/controlled-vocabulary/classifications-for-universities/academic-disciplines/")
+LICENSES = Namespace("https://w3id.org/italia/controlled-vocabulary/licences/")
 # CHANGE remove
 SCHEMA = Namespace("https://schema.org/")
 base = conf.base
@@ -57,7 +60,7 @@ def getValuesFromFields(fieldPrefix, recordData, fields=None, field_type=None):
 
 
 def getRightURIbase(value):
-	return WD+value if value.startswith('Q') else GEO+value if value.isdecimal() else VIAF+value[4:] if value.startswith("viaf") else ''+value if value.startswith("http") else base+value
+	return WD+value if value.startswith('Q') else GEO+value if value.isdecimal() else VIAF+value[4:] if value.startswith("viaf") else ''+value if value.startswith("http") else TADIRAH+value[8:] if value.startswith("tadirah-") else DISCIPLINES+value[3:] if value.startswith("ad-") else LICENSES+value[3:] if value.startswith("lc-") else base+value
 
 
 def inputToRDF(recordData, userID, stage, knowledge_extraction, graphToClear=None,tpl_form=None):
