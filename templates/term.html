@@ -10,7 +10,8 @@ $var project = project
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
 <section class="row articleBox">
-	<section class="col-md-7">
+	<script>console.log('$uri')</script>
+	<section class="col-md-8">
 		$if data:
 			$ label = next((result["object"]["value"] for result in data["results"]["bindings"] if result["predicate"]["value"] == "http://www.w3.org/2000/01/rdf-schema#label"), "No label")
 			<h2 class="articleTitle">$label</h2>
@@ -41,7 +42,7 @@ $var project = project
 					</section>
 			</section>
 			$if map:
-				<section class="info-item">
+				<section class="info-item map">
 					<h3 class="articleSubtitle">Map</h3>
 					<div id="map" style="height: 500px;"></div>
 					<script>
@@ -57,11 +58,41 @@ $var project = project
 						marker.bindPopup("<b>$label</b>").openPopup();
 					</script>
 				</section>
-
-
-			<hr/>
+			
 		$else:
 			<h2>ooops, we don't have a page for this yet.</h2>
 	</section>
-
+	<section class="col-md-4 sideBoxes">
+		$if name.startswith("Q"):
+			<section class="biblio">
+			<h3 class="biblio-label">External Concept</h3>
+			<p>This page represents an external concept taken from Wikidata. Concepts from Wikidata are used for geographical locations, temporal periods, and people (with the lowest priority if another authority can specify the same information).</p>
+			</section>
+		$elif name.isnumeric():
+			<section class="biblio">
+			<h3 class="biblio-label">External Concept</h3>
+			<p>This page represents an external record taken from Geonames. Records from Geonames are used for geographical locations.</p>
+			</section>
+		$elif name.startswith("viaf"):
+			<section class="biblio">
+			<h3 class="biblio-label">External Concept</h3>
+			<p>This page represents an external record taken from VIAF. Records from VIAF are used for people.</p>
+			</section>
+		$elif name.startswith("tadirah"):
+			<section class="biblio">
+			<h3 class="biblio-label">External Concept</h3>
+			<p>This page represents an external concept taken from TaDiRAH. Concepts from TaDiRAH are used to categorize research activities, both activities within a research project and activities made available to end users by a digital scholary object.</p>
+			</section>
+		$elif name.startswith("ad-"):
+			<section class="biblio">
+			<h3 class="biblio-label">External Concept</h3>
+			<p>This page represents an external concept taken from the Scientific Disciplinary Sector vocabulary. Concepts from this vocabulary are used for academic disciplines within the Italian context.</p>
+			</section>
+		$elif name.startswith("lc-"):
+			<section class="biblio">
+			<h3 class="biblio-label">External Concept</h3>
+			<p>This page represents an external concept taken from the Licenze vocabulary. Concepts from this vocabulary are used for licenses.</p>
+			</section>
+	</section>
+	<hr/>
 </section>

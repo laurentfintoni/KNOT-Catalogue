@@ -255,12 +255,13 @@ $(document).ready(function() {
       	$(this).parent().parent().find($('.alphabet')).append('<span data-toggle="collapse" data-target="#'+ data_target+'" aria-expanded="false" aria-controls="'+ letter+'" class="info_collapse" data-parent="#toc_resources_'+res_id+'">'+ letter +'</span>');
       };
       $(this).parent().find('[data-letter="'+ letter +'"]').append(this);
-      $('.toBeWrapped.'+res_id).find('.accordion-group').append(this);
-      // $('.toBeWrapped.'+res_id).each(function() {
-      //   if (!$(this).parent().hasClass('accordion-group')) {
-      //     $('.toBeWrapped.'+res_id).wrapAll("<section class='accordion-group'></section>");
-      //   }
-      // });
+      $('.toBeWrapped.'+res_id).each(function() {
+      if (!$(this).parent().hasClass('accordion-group')) {
+        $(this).wrapAll("<section class='accordion-group'></section>");
+ 
+      }
+    });
+ 
 
     });
     //$(".wrapAllparent").children(".toBeWrapped").wrapAll("<section class='accordion-group'></section>");

@@ -398,6 +398,10 @@ article p {
   height: 15em;
 }
 
+.map {
+  margin-bottom: 2em;
+}
+
 .top-border {
   border-top: solid 2px rgba(100, 23, 180, 1);
   margin-right: 0.5em;
@@ -1194,7 +1198,9 @@ i.fa-info-circle:hover {
 
 .accordion-group,
 .resultAccordion {
-  margin: 10px;
+  position: relative;
+  top: 20px;
+  left: 5px;
   overflow-y: auto;
 }
 
