@@ -256,6 +256,10 @@ def getData(graph,res_template):
 						uri = "ad-"+v['value'].rsplit('/', 1)[-1] # append values for creation of term pages 
 					elif '/licences/' in v['value']:
 						uri = "lc-"+v['value'].rsplit('/', 1)[-1] # append values for creation of term pages 
+					elif '/taxonomy/' in v['value']:
+						uri = "ktx-"+v['value'].rsplit('/', 1)[-1] # append values for creation of term pages 
+					elif '/thesaurus/' in v['value']:
+						uri = "kth-"+v['value'].rsplit('/', 1)[-1] # append values for creation of term pages 
 					else:
 						uri = v['value']
 					label = [value['value'] for key,value in result.items() if key == k+'_label'][0]

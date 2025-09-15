@@ -1010,15 +1010,13 @@ class Term(object):
 		"""
 		web.header("Cache-Control", "no-cache, max-age=0, must-revalidate, no-store")
 		uri = mapping.getRightURIbase(name)
-		print("uri:", uri)
 		data = queries.describeTerm(uri)
 		is_git_auth = github_sync.is_git_auth()
 
 		results_by_class = {}
 		appears_in = [ result["subject"]["value"] \
 					for result in data["results"]["bindings"] \
-					if result["object"]["type"] == 'uri' ]		
-		print(data, appears_in)
+					if result["object"]["value"] == uri ]		
 		with open(TEMPLATE_LIST) as tpl_list:
 			res_templates = json.load(tpl_list)
 		for res_uri in appears_in:
@@ -1028,7 +1026,7 @@ class Term(object):
 				results_by_class[res_type]['results'].append(res_uri)
 			else:
 				results_by_class[res_type] = {'class':res_class, 'results':[res_uri]}
-
+		print(res_type)
 		count = len(appears_in)
 		map_coordinates = (queries.geonames_geocoding(uri)) if uri.startswith("https://www.geonames.org/") else None
 

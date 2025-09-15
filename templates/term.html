@@ -10,7 +10,7 @@ $var project = project
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
 <section class="row articleBox">
-	<script>console.log('$uri')</script>
+	<script>console.log('$results')</script>
 	<section class="col-md-8">
 		$if data:
 			$ label = next((result["object"]["value"] for result in data["results"]["bindings"] if result["predicate"]["value"] == "http://www.w3.org/2000/01/rdf-schema#label"), "No label")
@@ -23,7 +23,7 @@ $var project = project
 				<section class="info-item">
 					<h3 class="articleSubtitle">View </h3><a href="$uri">external link</a>
 				</section>
-			<section class="info-item">
+			<section class="info-item"> 
 					<h3 class="articleSubtitle">Permalink</h3>
 					<span class="small">$uri</span>
 					<p></p>
@@ -34,6 +34,7 @@ $var project = project
 				$for res_class in results:
 					<section class="related-resources-container">
 						$ res_class_count = len(results[res_class]['results'])
+						<script>console.log('$res_class_count')</script>
 						<h4 class="articleSubtitle">$res_class ($res_class_count)</h4>
 						<button class="showRes" data-count="$res_class_count" data-offset="0" data-limit="10" data-uri="$uri" data-class="$results[res_class]['class']">show</button><br>
 						<section class="related-resources">
@@ -92,6 +93,16 @@ $var project = project
 			<section class="biblio">
 			<h3 class="biblio-label">External Concept</h3>
 			<p>This page represents an external concept taken from the Licenze vocabulary. Concepts from this vocabulary are used for licenses.</p>
+			</section>
+		$elif name.startswith("ktx-"):
+			<section class="biblio">
+			<h3 class="biblio-label">External Concept</h3>
+			<p>This page represents an external concept taken from the KNOT Taxonomy. Concepts from this vocabulary are used to classify digital objects.</p>
+			</section>
+		$elif name.startswith("kth-"):
+			<section class="biblio">
+			<h3 class="biblio-label">External Concept</h3>
+			<p>This page represents an external concept taken from the KNOT Technological Thesaurus. Concepts from this vocabulary are used for technologies used in research projects.</p>
 			</section>
 	</section>
 	<hr/>
