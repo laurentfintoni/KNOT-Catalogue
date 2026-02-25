@@ -1021,12 +1021,12 @@ class Term(object):
 			res_templates = json.load(tpl_list)
 		for res_uri in appears_in:
 			res_class = queries.getClass(res_uri)
-			res_type = next(t["name"] for t in res_templates if t["type"] == res_class)
-			if res_type in results_by_class:
-				results_by_class[res_type]['results'].append(res_uri)
-			else:
-				results_by_class[res_type] = {'class':res_class, 'results':[res_uri]}
-		print(res_type)
+			res_type = next((t["name"] for t in res_templates if t["type"] == res_class), None)
+			if res_type:
+				if res_type in results_by_class:
+					results_by_class[res_type]['results'].append(res_uri)
+				else:
+					results_by_class[res_type] = {'class':res_class, 'results':[res_uri]}
 		count = len(appears_in)
 		map_coordinates = (queries.geonames_geocoding(uri)) if uri.startswith("https://www.geonames.org/") else None
 
